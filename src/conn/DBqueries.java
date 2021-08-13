@@ -1,32 +1,22 @@
 package conn;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBqueries extends Dbconnect {
 
 
-    public void addUser (String dbname) throws SQLException {
+    public void addUser (String dbname) {
         Connect();
-        ResultSet res = null;
-        String sql;
-        Statement stmt = null;
+        String sql = "CREATE DATABASE " + dbname;
+        Statement stmt;
 
         try {
-            sql = "CREATE DATABASE " + dbname;
             stmt = conn.createStatement();
-            res = stmt.executeQuery(sql);
+            stmt.executeLargeUpdate(sql);
+            System.out.println("database " + dbname + " was created successfully !");
         }
         catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
-            if (res != null) {
-                res.close();
-                stmt.close();
-            }
-            Disconnect();
         }
     }
 }

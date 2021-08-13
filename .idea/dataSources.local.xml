@@ -14,7 +14,7 @@
           <node kind="schema">
             <name qname="@" />
             <name qname="mysql" />
-            <name qname="testing_ugly" />
+            <name qname="Students" />
           </node>
         </introspection-scope>
       </schema-mapping>

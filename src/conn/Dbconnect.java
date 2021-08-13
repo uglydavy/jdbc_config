@@ -10,20 +10,20 @@ public class Dbconnect implements Conf {
         @Override
         public void Connect() {
             try {
-                System.out.println("driver loaded successfully...");
                 Class.forName(driver);
+                System.out.println("driver loaded..");
             }
             catch (ClassNotFoundException e) {
-                System.out.println("sorry, the driver could not be found...");
+                System.out.println("sorry, the driver could not be found..");
                 e.printStackTrace();
             }
 
             try {
                 conn = DriverManager.getConnection(url, username, password);
-                System.out.println("connection with the database engine established successfully...");
+                System.out.println("you're connected to the database engine..");
             }
             catch (SQLException e) {
-                System.out.println("sorry, could not establish connection with the database engine...");
+                System.out.println("sorry, connection to database engine could not be established.");
                 e.printStackTrace();
             }
         }
